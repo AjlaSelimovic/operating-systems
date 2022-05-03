@@ -15,8 +15,8 @@ shell.c
 ## Outline of the Assignment
 We have created a simple and efficiant presentation of c shell commands required in this task. The majority of commands are separated into distinct functions, each with a name that corresponds to the command's functionality.
 ## Instructions for compiling
-gcc script.c -o script   
-./script
+gcc shell.c -o shell   
+./shell
 
 ## Challenges
 Finding good resources, getting the input 2nd and 3rd parameter, exploring and finding examples of csh commnads being utilized, and figuring out how to apply them were all challenges we experienced while working on this task.
