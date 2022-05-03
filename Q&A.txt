@@ -1,0 +1,62 @@
+Question 1: Do the following actions require the OS to use kernel mode or user mode is sufficient?
+Explain.
+1. A program wants to read from disk.
+2. Reading the current time from the hardware clock.
+
+
+
+1.A program wants to read from disk.
+
+A read usually necessitates a hardware connection. Hardware access is time-consuming and error-prone, and it might cause the computer to become unusable. The operating system uses drivers to control the computer's hardware.
+When a driver receives a read (assuming it's a hard disk IO), it sends a set of commands to the disk controller, instructing it to read the output, pass it to main memory, and so on.
+
+2.Reading the current time from the hardware clock.
+
+You can read memory-mapped registers from user mode if the hardware clocks include them, as long as the mapped region does not contain sensitive data (it may or may not, depends on the hardware).
+
+Question 2: Explain the purpose of a system call. There are different sets of system calls: list them and give at least 2 examples of a system call for each category.
+
+A system call is a mechanism that provides the interface between a process and the operating system. It's a programmatic mechanism for a computer program to request a service from the operating system's kernel. System call exposes the operating system's services to user programs via an API.
+Some of the System Calls are: 
+
+-Process Control-it performs the task of process creation, process termination, etc. Examples in Unix/Windows:
+
+●fork()/CreateProcess()
+
+●exit()/ExitProcess()
+
+●wait()/WaitForSingleObject()
+
+-File Management-it handle file manipulation jobs like creating a file, reading, and writing, etc. Examples in Unix/Windows:
+
+●open()/CreateFile()
+
+●read()/ReadFile()
+
+●write()/WriteFile()
+
+●close()/CloseHandle()
+
+-Device management- does the job of device manipulation like reading from device buffers, writing into device buffers.Examples in Unix/Windows:
+
+●read()/ReadConsole()
+
+●write()/WriteConsole()
+
+●ioctl()/SetConsoleMode()
+
+-Information Maintenance- it handles information and its transfer between the OS and the user program. Examples in Unix/Windows:
+
+●getpid()/GetCurrentProcessID()
+
+●sleep()/Sleep()
+
+●alarm()/SetTimer()
+
+-Communication- these types of system calls are specially used for interprocess communications. Examples in Unix/Windows
+
+●pipe()/CreatePipe()
+
+●shmget()/CreateFileMapping()
+
+●mmap()/MapViewOfFile()
